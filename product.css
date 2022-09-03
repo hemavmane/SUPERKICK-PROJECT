@@ -64,10 +64,17 @@ h2{
  } 
 
 span{
-    width:150px ;
+    width:100px ;
     margin: 0%;
     font-size: 15px;
     font-weight: bold;
     text-align: justify;
     margin-left: 30px;
+    word-wrap: break-word;
+}
+.div1{
+    width: 300px;
+    height: 200px;
+   
+
 }
