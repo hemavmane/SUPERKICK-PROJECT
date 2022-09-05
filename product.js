@@ -56,26 +56,30 @@ let arr = [
 ];
 
 let container = document.querySelector(".images_container");
-let prebtn = document.querySelector(".btn1");
-let nextbtn = document.querySelector(".btn2");
+let prebtn = document.querySelector(".btn3");
+let nextbtn = document.querySelector(".btn4");
 
-let prev = document.createElement("button");
+
 let flag = 0;
 function previous() {
-  container.innerHTML = "";
-  if (flag == 4) {
-    flag = 1;
+  container.innerHTML =null;
+  if (flag ==4) {
+    flag=1
   }
 
-  for (let i = flag + 4; i > flag; i--) {
+  for (let i = flag +4; i > flag; i--) {
     let html = ` <div id="images">
             <img id="image" src="${arr[i].img}">
             <div class="div1">
-            <h2>${arr[i].Brand}</h2>
-            <h3>${arr[i].name}</h3>
-            <span>${arr[i].price}</span>
-           </div>
-            </div>`;
+            <small class"brand">${arr[i].Brand}</small>
+            </div>
+            <div class="div2">
+            <small class"name" >${arr[i].name}</small>
+            </div>
+            <div class="div3">
+            <small class"price" >${arr[i].price}<small>
+          </div>
+          </div>`;
     container.innerHTML += html;
     console.log(html);
   }
@@ -84,18 +88,25 @@ function previous() {
 prebtn.addEventListener("click", previous);
 
 function next() {
-  container.innerHTML = "";
-  if (flag == 4) {
+  container.innerHTML = null;
+  if (flag ==arr.length-1){
     flag = 1;
   }
 
-  for (let i = flag; i < flag + 4; i++) {
+  for (let i = flag; i < flag +arr.length-1; i++) {
     let html = ` <div id="images">
             <img id="image" src="${arr[i].img}">
-            <h2>${arr[i].Brand}</h2>
-            <span>${arr[i].name}</span>
-            <p>${arr[i].price}</p>
-            </div>`;
+            <div class="div1">
+            <small class"brand">${arr[i].Brand}</small>
+            </div>
+            <div class="div2">
+            <small class"name" >${arr[i].name}</small>
+            </div>
+            <div class="div3">
+            <small class"price" >${arr[i].price}<small>
+          </div>
+          </div>`;
+    
     container.innerHTML += html;
     console.log(html);
   }
