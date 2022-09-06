@@ -1,5 +1,4 @@
 images = [
-  
   "./img3/9.jpg",
   "./img3/8.jpg",
   "./img3/7.jpg",
@@ -31,12 +30,3 @@ function show_image(initial) {
 }
 
 setInterval(show_image, 3000);
-
-
-
-
-
-
-
-
-
