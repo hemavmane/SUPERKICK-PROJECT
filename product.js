@@ -55,67 +55,47 @@ let arr = [
   },
 ];
 
-let container = document.querySelector(".images_container");
-let prebtn = document.querySelector(".btn3");
-let nextbtn = document.querySelector(".btn4");
+let container = document.querySelector(".product_container");
+let prepbtn = document.querySelector(".crousel_btn1");
+let nextpbtn = document.querySelector(".crousel_btn2");
 
-
-let flag = 0;
-function previous() {
-  container.innerHTML =null;
-  if (flag ==4) {
-    flag=1
-  }
-
-  for (let i = flag +4; i > flag; i--) {
-    let html = ` <div id="images">
-            <img id="image" src="${arr[i].img}">
-            <div class="div1">
-            <small class"brand">${arr[i].Brand}</small>
+let flagp = 4;
+function showproduct() {
+  container.innerHTML = "";
+  for (let i = 0; i < 4; i++) {
+    let html = ` 
+    <div class="product">
+                <img src="${arr[i].img}" alt="" class="product_img">
+                <p class="brand">${arr[i].Brand}</p>
+                <p class="name">${arr[i].name}</p>
+                <p class="price">${arr[i].price}</p>
             </div>
-            <div class="div2">
-            <small class"name" >${arr[i].name}</small>
-            </div>
-            <div class="div3">
-            <small class"price" >${arr[i].price}<small>
-          </div>
-          </div>`;
+    `;
     container.innerHTML += html;
-    console.log(html);
   }
-  flag++;
 }
-prebtn.addEventListener("click", previous);
+showproduct();
 
+prepbtn.addEventListener("click", next);
+nextpbtn.addEventListener("click", next);
+
+let count = 1;
 function next() {
-  container.innerHTML = null;
-  if (flag ==arr.length-1){
-    flag = 1;
-  }
-
-  for (let i = flag; i < flag +arr.length-1; i++) {
-    let html = ` <div id="images">
-            <img id="image" src="${arr[i].img}">
-            <div class="div1">
-            <small class"brand">${arr[i].Brand}</small>
+  container.innerHTML = "";
+  for (let i = count; i < count + 4; i++) {
+    let html = `
+    <div class="product">
+                <img src="${arr[i].img}" alt="" class="product_img">
+                <p class="brand">${arr[i].Brand}</p>
+                <p class="name">${arr[i].name}</p>
+                <p class="price">${arr[i].price}</p>
             </div>
-            <div class="div2">
-            <small class"name" >${arr[i].name}</small>
-            </div>
-            <div class="div3">
-            <small class"price" >${arr[i].price}<small>
-          </div>
-          </div>`;
-    
+    `;
     container.innerHTML += html;
-    console.log(html);
   }
-  flag++;
+  count++;
+  if (count == 6) {
+    count = 0;
+  }
+  console.log(count);
 }
-
-nextbtn.addEventListener("click", next);
-
-next();
-previous();
-
-
